@@ -126,10 +126,11 @@ export default function Quote({ product, setProduct }) {
               <p>Prefer to talk directly? Reach us on any of these channels.</p>
               <dl>
                 {[
-                  ['phone', 'Phone / WhatsApp', contact.phones.map((n, i) => <span key={n}>{i > 0 && ' · '}<a href={telHref(n)}>{n}</a></span>)],
+                  ['phone', 'Phone', contact.phones.map((n, i) => <span key={n}>{i > 0 && ' · '}<a href={telHref(n)}>{n}</a></span>)],
+                  ['phone', 'WhatsApp', <a href={waHref()} target="_blank" rel="noopener">{contact.whatsapp}</a>],
                   ['mail', 'Email', <a href={`mailto:${contact.email}`}>{contact.email}</a>],
                   ['pin', 'Office', contact.office],
-                  ['clock', 'Hours', <span className="ph">{contact.hours}</span>],
+                  ['clock', 'Hours', contact.hours],
                 ].map(([icon, k, v]) => (
                   <div key={k}>
                     <i><Icon name={icon} /></i>

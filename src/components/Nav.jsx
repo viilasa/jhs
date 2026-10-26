@@ -47,7 +47,7 @@ export default function Nav() {
         <div className="wrap">
           <ul>
             <li><Icon name="pin" /><span>{contact.office}</span></li>
-            <li><Icon name="clock" /><span className="ph">{contact.hours}</span></li>
+            <li><Icon name="clock" /><span>{contact.hours}</span></li>
           </ul>
           <ul>
             <li><Icon name="mail" /><a href={`mailto:${contact.email}`}>{contact.email}</a></li>

@@ -1,5 +1,5 @@
 import { Logo } from './Nav.jsx'
-import { groups, contact, categoryHref, telHref } from '../data.js'
+import { groups, contact, categoryHref, telHref, waHref } from '../data.js'
 
 export default function Footer() {
   return (
@@ -32,9 +32,10 @@ export default function Footer() {
             <h4>Contact</h4>
             <ul>
               {contact.phones.map((n) => <li key={n}><a href={telHref(n)}>{n}</a></li>)}
+              <li><a href={waHref()} target="_blank" rel="noopener">WhatsApp: {contact.whatsapp}</a></li>
               <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
               <li>{contact.office}</li>
-              <li><span className="ph">{contact.hours}</span></li>
+              <li>{contact.hours}</li>
             </ul>
           </div>
         </div>

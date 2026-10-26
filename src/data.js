@@ -190,13 +190,13 @@ export const categoryHref = (id) => `#/products/${id}`
 
 export const packing = ['22.68 kg carton', '25 kg bag', '50 kg bag', '1 kg pouch', '500 g pouch', '250 g pouch', 'Gift box', 'Not sure yet']
 
-// Verified by JHS: phones, email, office, domain. Still placeholders (highlighted on the page): hours, licence.
+// Verified by JHS: phones, WhatsApp, email, office, hours, domain. Still a placeholder (highlighted on the page): licence.
 export const contact = {
   phones: ['+971 50 9799 153', '+971 50 9799 152'],
-  whatsapp: '+971 50 9799 153',
+  whatsapp: '+971 50 9799 152',
   email: 'sales@jhstrade.net',
   office: 'Al Hamra Industrial Zone, Ras Al Khaimah, UAE',
-  hours: 'Sat–Thu, 9:00–18:00',
+  hours: '9:00 AM – 5:00 PM',
   licence: '[licence no.]',
   site: 'https://jhstrade.net',
 }
