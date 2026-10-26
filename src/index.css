@@ -87,7 +87,9 @@ button,input,select,textarea{ font:inherit; color:inherit }
 .nav.scrolled{ border-bottom-color:var(--line); box-shadow:var(--sh-sm) }
 .nav > .wrap{ display:flex; align-items:center; gap:32px; height:76px }
 .brand{ display:flex; align-items:center; gap:12px; flex:none }
-.brand svg{ width:42px; height:42px }
+.brand-logo{ width:52px; height:52px; border-radius:50%; flex:none }
+footer .brand-logo{ width:64px; height:64px }
+@media (max-width:860px){ .brand-logo{ width:46px; height:46px } }
 .brand b{ display:block; font:800 17px/1.1 var(--f-head); color:var(--ink); letter-spacing:-.01em }
 .brand small{ display:block; font-size:12px; color:var(--muted); margin-top:2px; letter-spacing:.02em }
 .nav-links{ display:flex; gap:4px; margin-left:auto }
@@ -135,6 +137,7 @@ button,input,select,textarea{ font:inherit; color:inherit }
 .board td:first-child{ font-weight:600; color:var(--ink) }
 .prod{ display:flex; align-items:center; gap:12px }
 .board td:first-child svg{ width:30px; height:30px; padding:4px; border-radius:8px; background:var(--bg-soft); flex:none }
+.board td .pack{ display:block; white-space:nowrap }
 .board td small{ display:block; font-weight:500; color:var(--muted); font-size:12px }
 .board-foot{ display:flex; justify-content:space-between; align-items:center; gap:12px; padding:16px 22px; background:var(--bg-soft); border-top:1px solid var(--line); font-size:13px }
 .float-card{ position:absolute; left:-28px; bottom:-58px; display:flex; align-items:center; gap:12px; background:#fff; border-radius:var(--r); padding:14px 18px; box-shadow:var(--sh); font-size:13px; color:var(--muted) }
@@ -180,7 +183,7 @@ button,input,select,textarea{ font:inherit; color:inherit }
 
 /* ───────────── Catalogue ───────────── */
 /* category cards (home page + "other categories") */
-.psegs{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px }
+.psegs{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px }
 .cat-more .psegs{ grid-template-columns:repeat(3,1fr) }
 .pseg{ position:relative; display:flex; flex-direction:column; align-items:flex-start; gap:12px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg);
   padding:28px 24px 22px; color:var(--text); transition:box-shadow .25s,border-color .25s,transform .25s }
@@ -200,7 +203,10 @@ button,input,select,textarea{ font:inherit; color:inherit }
 .pseg-cta .pseg-blurb{ color:rgba(255,255,255,.7) }
 .pseg-cta .pseg-foot{ border-color:rgba(255,255,255,.16); margin-top:12px }
 .pseg-cta .pseg-go{ margin-left:0; color:var(--gold) }
-@media (max-width:1080px){ .psegs{ grid-template-columns:repeat(3,1fr) } }
+/* the "need a mix" card runs full width under the category cards */
+#products .pseg-cta{ grid-column:1/-1; flex-direction:row; flex-wrap:wrap; align-items:center; column-gap:28px; padding:26px 28px }
+#products .pseg-cta .pseg-blurb{ flex:1 1 320px }
+#products .pseg-cta .pseg-foot{ width:auto; margin:0 0 0 auto; padding:0; border:0 }
 @media (max-width:860px){ .psegs,.cat-more .psegs{ grid-template-columns:repeat(2,1fr) } }
 
 .item-art.mono{ display:grid; place-items:center; padding:0; font:800 17px/1 var(--f-head); letter-spacing:-.02em; color:var(--gold-600) }
@@ -260,11 +266,12 @@ button,input,select,textarea{ font:inherit; color:inherit }
   .pseg-title{ grid-area:title; align-self:end; font-size:16px; margin:0 }
   .pseg-blurb,.pseg-go{ display:none }
   .pseg-foot{ grid-area:foot; align-self:start; width:auto; margin:0; padding:0; border:0 }
-  .pseg-cta{ display:flex; padding:18px }
+  .pseg-cta,#products .pseg-cta{ display:flex; flex-direction:column; align-items:flex-start; gap:10px; padding:18px }
   .pseg-cta .pseg-title{ font-size:18px; align-self:auto }
   .pseg-cta .pseg-blurb,.pseg-cta .pseg-go{ display:flex }
   .pseg-cta .pseg-blurb{ font-size:14px }
-  .pseg-cta .pseg-foot{ padding-top:12px; border-top:1px solid rgba(255,255,255,.16) }
+  .pseg-cta .pseg-foot,#products .pseg-cta .pseg-foot{ width:100%; margin:0; padding-top:12px; border-top:1px solid rgba(255,255,255,.16) }
+  #products .pseg-cta .pseg-blurb{ flex:none }
   .group-title{ margin-bottom:16px; padding-bottom:12px }
   .group-title h3{ font-size:20px }
   .grid,.grid.four{ gap:12px }
@@ -377,6 +384,27 @@ button,input,select,textarea{ font:inherit; color:inherit }
 .cta-band .ctas{ margin-top:0 }
 @media (max-width:560px){ .cta-band{ padding:32px 22px } }
 
+/* ───────────── FAQ ───────────── */
+.faq-list{ display:grid; gap:12px; max-width:880px }
+.faq details{ background:#fff; border:1px solid var(--line); border-radius:var(--r); padding:0 22px; transition:border-color .2s,box-shadow .2s }
+.faq details[open]{ border-color:transparent; box-shadow:var(--sh) }
+.faq summary{ display:flex; justify-content:space-between; align-items:center; gap:16px; padding:20px 0; cursor:pointer; list-style:none; font:700 17px/1.35 var(--f-head); color:var(--ink) }
+.faq summary::-webkit-details-marker{ display:none }
+.faq summary::after{ content:'+'; flex:none; display:grid; place-items:center; width:30px; height:30px; border-radius:50%; background:var(--bg-soft); font:600 20px/1 var(--f-body); color:var(--navy-700); transition:transform .2s }
+.faq details[open] summary::after{ transform:rotate(45deg) }
+.faq details p{ padding:0 0 20px; color:var(--muted); font-size:15px; max-width:760px }
+@media (max-width:560px){ .faq details{ padding:0 16px } .faq summary{ font-size:16px; padding:16px 0 } }
+
+/* ───────────── Legal + 404 pages ───────────── */
+.page-hero > .wrap{ grid-template-columns:1fr; padding-top:48px; padding-bottom:56px }
+.page-hero h1{ margin-top:0 }
+.legal > *{ max-width:800px }
+.legal-intro{ font-size:18px; color:var(--ink); margin-bottom:12px }
+.legal section{ padding-top:28px }
+.legal h2{ font-size:21px; margin-bottom:12px }
+.legal p{ color:var(--text); font-size:16px }
+.legal p + p{ margin-top:12px }
+
 /* ───────────── Footer ───────────── */
 footer{ background:var(--navy-950); color:rgba(255,255,255,.6); font-size:14px; padding:72px 0 0 }
 .foot-grid{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1.3fr; gap:40px; padding-bottom:56px }
@@ -387,6 +415,8 @@ footer h4{ color:#fff; font-size:14px; letter-spacing:.04em; margin-bottom:18px 
 footer li + li{ margin-top:10px }
 footer a:hover{ color:#fff }
 footer .ph{ background:rgba(200,150,46,.18); color:#F0CF8A }
+.foot-legal{ display:flex; gap:20px }
+.foot-legal a:hover{ color:#fff }
 .foot-bottom{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; padding:24px 0; border-top:1px solid rgba(255,255,255,.1); font-size:13px }
 @media (max-width:900px){ .foot-grid{ grid-template-columns:1fr 1fr } }
 @media (max-width:520px){ .foot-grid{ grid-template-columns:1fr } footer{ padding-bottom:84px } }

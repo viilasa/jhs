@@ -1,11 +1,15 @@
 // Product categories. Each one gets its own page at #/products/<id>.
 // Product names, grades and origins follow the supplier's (BetterGrow) published range —
 // confirm each line with JHS before going live.
+// h1 / seoTitle / seoDescription are the page headline and the search-result title and snippet.
 // Item fields: name (unique across all categories), icon (a drawing in index.html, optional),
 // origin, grades (chips), note (optional extra line), group (optional sub-heading on the page).
 export const groups = [
   {
     id: 'nuts',
+    h1: 'Wholesale nuts supplier in the UAE',
+    seoTitle: 'Wholesale Nuts Supplier in UAE – Almonds, Cashews, Pistachios',
+    seoDescription: 'Buy almonds, cashews, pistachios, walnuts, hazelnuts and more in bulk from JHS General Trading, a nuts distributor in Ras Al Khaimah, UAE. Graded by origin and size.',
     title: 'Nuts',
     icon: 'cashew',
     blurb: 'Almonds, cashews, pistachios, walnuts, hazelnuts and more, across multiple origins, grades and sizes.',
@@ -25,43 +29,18 @@ export const groups = [
       { name: 'Peanuts', grades: ['Blanched', 'Skin-on', 'In-shell'], origin: 'Origins: India, China, Argentina' },
       { name: 'Pecans', grades: ['Halves', 'Pieces'], origin: 'Origin: USA' },
       { name: 'Pine nuts', icon: 'pine', grades: ['Kernels', 'In-shell'], origin: 'Origins: Pakistan, Türkiye' },
-      { name: 'Pistachios', icon: 'pista', grades: ['18/20', '21/25', '22/24', 'Medium', 'Jumbo', 'Super Jumbo', 'Kernels'], origin: 'Origin: USA' },
+      { name: 'Pistachios', icon: 'pista', grades: ['18/20', '21/25', '22/24', 'Medium', 'Jumbo', 'Super Jumbo', 'Kernels'], origin: 'Origins: USA, Iran' },
       { name: 'Walnuts', icon: 'walnut', grades: ['Light Chandler', 'Jumbo', 'Premium', 'Regular', 'Halves'], origin: 'Origins: USA, Chile' },
     ],
   },
   {
-    id: 'roasted-nuts',
-    title: 'Roasted, flavoured & coated nuts',
-    icon: 'almond',
-    blurb: 'Roasted, salted, flavoured and coated nuts and seeds for retail, foodservice and snacking.',
-    intro: 'Ready-to-eat nuts and seeds in classic and regional flavours, for supermarkets, cafés, hotels and snack brands. Try a single carton first, then scale to bulk.',
-    facts: [
-      ['Flavours', 'Salted, BBQ, cheese, chilli, lemon & salt, zaatar, smoked and more'],
-      ['Sizes', 'Medium, Large, Jumbo and Premium, depending on the nut'],
-      ['Packing', 'Single cartons for testing, bulk cartons, retail packs'],
-    ],
-    items: [
-      { group: 'Roasted nuts', name: 'Roasted almonds', icon: 'almond', grades: ['Salted', 'Smoked', 'BBQ', 'Cheese', 'Chilli', 'Lemon & salted'], note: 'Sizes: Medium · Jumbo' },
-      { group: 'Roasted nuts', name: 'Roasted cashews', icon: 'cashew', grades: ['Salted', 'BBQ', 'Black pepper', 'Caramel & sesame', 'Cheese', 'Parmesan', 'Chilli', 'Zaatar'], note: 'Sizes: Medium · Jumbo · Premium' },
-      { group: 'Roasted nuts', name: 'Roasted pistachios', icon: 'pista', grades: ['Salted', 'Crystal salt', 'Lemon & salted', 'BBQ & salted', 'Salted & cheese'], note: 'Sizes: Medium · Large · Jumbo · Premium' },
-      { group: 'Roasted nuts', name: 'Roasted hazelnuts', icon: 'hazel', grades: ['Salted'] },
-      { group: 'Roasted nuts', name: 'Roasted peanuts', grades: ['Salted', 'Masala'] },
-      { group: 'Roasted nuts', name: 'Flavoured pecans', grades: ['Vanilla'] },
-      { group: 'Roasted nuts', name: 'Roasted walnuts', icon: 'walnut', grades: ['Roasted'] },
-      { group: 'Roasted nuts', name: 'Roasted mixed nuts', grades: ['Salted'] },
-      { group: 'Coated nuts', name: 'Coated cashews', icon: 'cashew', grades: ['BBQ', 'Cheese', 'Chilli'], note: 'Krikri-style crunchy coating' },
-      { group: 'Coated nuts', name: 'Coated peanuts', grades: ['BBQ', 'Cheese', 'Chilli', 'Tomato ketchup'], note: 'Krikri-style crunchy coating' },
-      { group: 'Roasted seeds', name: 'Egyptian watermelon seeds', grades: ['Salted', 'Lemon & salted', 'BBQ'] },
-      { group: 'Roasted seeds', name: 'Roasted pumpkin seeds', grades: ['Salted', 'Lemon & salted', 'BBQ'] },
-      { group: 'Roasted seeds', name: 'Roasted squash seeds', grades: ['Salted', 'Lemon & salted'] },
-      { group: 'Roasted seeds', name: 'Roasted sunflower seeds', grades: ['Salted', 'BBQ & salted'] },
-    ],
-  },
-  {
     id: 'processed-nuts',
+    h1: 'Processed nuts & nut ingredients in the UAE',
+    seoTitle: 'Processed Nuts & Nut Ingredients Supplier in UAE',
+    seoDescription: 'Diced, sliced, slivered and powdered almonds, cashew pieces, pistachio powder and seed kernels, supplied in bulk across the UAE by JHS General Trading.',
     title: 'Processed nuts & nut ingredients',
     icon: 'pista',
-    blurb: 'Diced, sliced, slivered and powdered nuts and seed kernels for bakery, confectionery and HoReCa.',
+    blurb: 'Diced, sliced, slivered and powdered nuts and seed kernels.',
     intro: 'Cut and milled nut ingredients for bakeries, confectioners, ice-cream makers, food manufacturers and hotel kitchens. Tell us the cut and the end use and we will match the spec.',
     facts: [
       ['Origins', 'USA, India, Vietnam, China'],
@@ -78,6 +57,9 @@ export const groups = [
   },
   {
     id: 'dried-fruits',
+    h1: 'Dried fruits wholesale in the UAE',
+    seoTitle: 'Dried Fruits Wholesale Supplier in UAE – Raisins, Figs, Apricots',
+    seoDescription: 'Raisins, dried apricots, figs, prunes, cranberries, coconut and dehydrated fruit in bulk and retail packs from JHS General Trading, Ras Al Khaimah, UAE.',
     title: 'Dried fruits',
     icon: 'fig',
     blurb: 'Raisins, apricots, figs, prunes, berries, coconut and dehydrated fruit for bulk and retail.',
@@ -100,6 +82,9 @@ export const groups = [
   },
   {
     id: 'dates',
+    h1: 'Dates supplier in the UAE',
+    seoTitle: 'Dates Wholesale Supplier in UAE – Medjool, Ajwa, Khalas, Sukkari',
+    seoDescription: 'Medjool, Ajwa, Khalas, Sukkari, Mabroom and more dates for retail, hotels and gifting, supplied across the UAE by JHS General Trading, Ras Al Khaimah.',
     title: 'Dates',
     icon: 'date',
     blurb: 'Medjool, Ajwa, Khalas, Sukkari and other dates for retail, hospitality, gifting and ingredients.',
@@ -122,6 +107,9 @@ export const groups = [
   },
   {
     id: 'spices',
+    h1: 'Spices & herbs wholesale in the UAE',
+    seoTitle: 'Spices Wholesale Distributor in UAE – Chilli, Turmeric, Cardamom',
+    seoDescription: 'Red chilli, turmeric, cardamom, black pepper, cumin, saffron and 18 more whole and ground spices and herbs, wholesale from JHS General Trading, UAE.',
     title: 'Spices & herbs',
     icon: 'chilli',
     blurb: 'Whole and ground spices, herbs, seeds and blends: red chilli, turmeric, cardamom, saffron and more.',
@@ -160,6 +148,9 @@ export const groups = [
   },
   {
     id: 'seeds-pulses-grains',
+    h1: 'Seeds, pulses & grains supplier in the UAE',
+    seoTitle: 'Seeds, Pulses & Grains Wholesale Supplier in UAE',
+    seoDescription: 'Chickpeas, lentils, beans, quinoa, bulgur, semolina, chia, flax and sesame in bulk from JHS General Trading, a food distributor in Ras Al Khaimah, UAE.',
     title: 'Seeds, pulses & grains',
     icon: 'cumin',
     blurb: 'Beans, chickpeas, lentils, grains, quinoa, semolina, chia, flax and sesame.',
@@ -186,19 +177,21 @@ export const groups = [
   },
 ]
 
-export const categoryHref = (id) => `#/products/${id}`
+export const categoryHref = (id) => `/products/${id}/`
 
 export const packing = ['22.68 kg carton', '25 kg bag', '50 kg bag', '1 kg pouch', '500 g pouch', '250 g pouch', 'Gift box', 'Not sure yet']
 
-// Verified by JHS: phones, WhatsApp, email, office, hours, domain. Still a placeholder (highlighted on the page): licence.
+// Verified by JHS: phones, WhatsApp, email, office, hours, licence, domain.
 export const contact = {
+  name: 'JHS General Trading',
+  legalName: 'JHS General Trading FZ-LLC',
   phones: ['+971 50 9799 153', '+971 50 9799 152'],
   whatsapp: '+971 50 9799 152',
   email: 'sales@jhstrade.net',
   office: 'Al Hamra Industrial Zone, Ras Al Khaimah, UAE',
   hours: '9:00 AM – 5:00 PM',
-  licence: '[licence no.]',
-  site: 'https://jhstrade.net',
+  licence: '7005864',
+  site: 'https://www.jhstrade.net',
 }
 
 const digits = (n) => n.replace(/\D/g, '')
@@ -206,3 +199,19 @@ export const telHref = (n) => `tel:+${digits(n)}`
 export const waHref = (text) => `https://wa.me/${digits(contact.whatsapp)}${text ? `?text=${encodeURIComponent(text)}` : ''}`
 export const mailHref = (subject, body) =>
   `mailto:${contact.email}${subject ? `?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body || '')}` : ''}`
+
+// Shown on the home page and published as FAQ structured data — keep both in sync by editing only here.
+export const faqs = [
+  ['Are you a nuts and spices distributor in the UAE?',
+    'Yes. JHS General Trading FZ-LLC is a wholesale distributor based in Al Hamra Industrial Zone, Ras Al Khaimah. We supply nuts, dried fruits, dates, spices, seeds and pulses to traders, wholesalers, retailers and food businesses in the UAE and the wider Gulf.'],
+  ['Which products do you supply?',
+    'Six categories: nuts (almonds, cashews, pistachios, walnuts and more), processed nuts and nut ingredients, dried fruits, dates, spices and herbs, and seeds, pulses and grains. Each product is quoted by grade, size and origin.'],
+  ['How do I get a price?',
+    'Send the product, grade, quantity, packing and delivery location on WhatsApp (+971 50 9799 152) or by email to sales@jhstrade.net, or use the quote form on this website. We reply with pricing and availability.'],
+  ['What packing options are available?',
+    'Bulk 20 kg and 22.68 kg cartons, 25 kg and 50 kg bags, retail pouches from 250 g to 1 kg, and gift boxes, depending on the product.'],
+  ['Can I get samples and spec sheets before ordering?',
+    'Yes. Spec sheets and samples are available on request for any product line, so you can check quality before you commit to a full order.'],
+  ['Do you provide export documents?',
+    'Yes. Export orders can be supplied with a certificate of origin and a phytosanitary certificate.'],
+]

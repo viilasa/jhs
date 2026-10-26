@@ -2,21 +2,19 @@ import { useEffect, useState } from 'react'
 import Icon from './Icons.jsx'
 import { contact, telHref } from '../data.js'
 
-const links = [
-  ['#about', 'About'],
-  ['#products', 'Products'],
-  ['#solutions', 'Solutions'],
-  ['#sourcing', 'Sourcing'],
-  ['#quote', 'Contact'],
+// Absolute so they also work from category and legal pages
+const sections = [
+  ['/#about', 'About'],
+  ['/#products', 'Products'],
+  ['/#solutions', 'Solutions'],
+  ['/#sourcing', 'Sourcing'],
 ]
 
 export function Logo() {
-  return (
-    <svg aria-hidden="true"><use href="#logo" /></svg>
-  )
+  return <img className="brand-logo" src="/logo-mark.png" width="200" height="200" alt="" />
 }
 
-export default function Nav() {
+export default function Nav({ quoteHref }) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -40,6 +38,7 @@ export default function Nav() {
   }, [open])
 
   const close = () => setOpen(false)
+  const links = [...sections, [quoteHref, 'Contact']]
 
   return (
     <>
@@ -58,14 +57,14 @@ export default function Nav() {
 
       <nav className={scrolled ? 'nav scrolled' : 'nav'} aria-label="Main">
         <div className="wrap">
-          <a className="brand" href="#/" aria-label="JHS General Trading home" onClick={close}>
+          <a className="brand" href="/" aria-label="JHS General Trading home" onClick={close}>
             <Logo />
             <span><b>JHS General Trading</b><small>Nuts · Dry fruits · Spices</small></span>
           </a>
           <ul className="nav-links">
             {links.map(([href, label]) => <li key={href}><a href={href}>{label}</a></li>)}
           </ul>
-          <a className="btn btn-primary btn-sm nav-cta" href="#quote">Request a quote</a>
+          <a className="btn btn-primary btn-sm nav-cta" href={quoteHref}>Request a quote</a>
           <button
             className="burger"
             type="button"
@@ -82,7 +81,7 @@ export default function Nav() {
           <ul>
             {links.map(([href, label]) => <li key={href}><a href={href} onClick={close}>{label}</a></li>)}
           </ul>
-          <a className="btn btn-primary" href="#quote" onClick={close}>Request a quote</a>
+          <a className="btn btn-primary" href={quoteHref} onClick={close}>Request a quote</a>
         </div>
       </nav>
     </>

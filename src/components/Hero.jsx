@@ -5,9 +5,9 @@ const lineCount = groups.reduce((n, g) => n + g.items.length, 0)
 
 // Sample lines for the spec board — typical trade specs, not live prices.
 const board = [
-  { icon: 'cashew', name: 'Cashew nuts', grade: 'W240 · W320', origin: 'India, Vietnam', pack: '22.68 kg carton' },
+  { icon: 'cashew', name: 'Cashew nuts', grade: '', origin: 'India, Vietnam', pack: '20 kg carton' },
   { icon: 'almond', name: 'Almonds', grade: 'Nonpareil 23/25', origin: 'USA', pack: '22.68 kg carton' },
-  { icon: 'pista', name: 'Pistachios', grade: 'Akbari', origin: 'Iran', pack: 'Carton' },
+  { icon: 'pista', name: 'Pistachios', grade: 'Akbari', origin: 'USA, Iran', pack: ['5 / 10 kg carton', '50 kg bag'] },
   { icon: 'cardamom', name: 'Green cardamom', grade: '8 mm', origin: 'India, Guatemala', pack: '25 kg bag' },
   { icon: 'saffron', name: 'Saffron', grade: 'Super Negin', origin: 'Iran', pack: 'On request' },
 ]
@@ -24,7 +24,7 @@ export default function Hero() {
     <header className="hero" id="top">
       <div className="wrap">
         <div className="hero-copy">
-          <span className="eyebrow">UAE-based commodity trading</span>
+          <span className="eyebrow">Wholesale nuts &amp; spices distributor · UAE</span>
           <h1>Premium nuts, dry fruits &amp; spices, <span>supplied from the UAE.</span></h1>
           <p className="lead">
             JHS General Trading sources graded almonds, cashews, pistachios, dry fruits and whole spices from leading
@@ -50,9 +50,9 @@ export default function Hero() {
               <tbody>
                 {board.map((r) => (
                   <tr key={r.name}>
-                    <td><div className="prod"><svg aria-hidden="true"><use href={`#i-${r.icon}`} /></svg><span>{r.name}<small>{r.grade}</small></span></div></td>
+                    <td><div className="prod"><svg aria-hidden="true"><use href={`#i-${r.icon}`} /></svg><span>{r.name}{r.grade && <small>{r.grade}</small>}</span></div></td>
                     <td>{r.origin}</td>
-                    <td>{r.pack}</td>
+                    <td>{[].concat(r.pack).map((p) => <span className="pack" key={p}>{p}</span>)}</td>
                   </tr>
                 ))}
               </tbody>

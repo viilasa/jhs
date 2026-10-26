@@ -24,12 +24,12 @@ export default function CategoryPage({ group, onAsk, children }) {
         <div className="wrap">
           <div>
             <nav className="crumbs" aria-label="Breadcrumb">
-              <a href="#/">Home</a><span aria-hidden="true">/</span>
-              <a href="#products">Products</a><span aria-hidden="true">/</span>
+              <a href="/">Home</a><span aria-hidden="true">/</span>
+              <a href="/#products">Products</a><span aria-hidden="true">/</span>
               <span aria-current="page">{group.title}</span>
             </nav>
             <span className="eyebrow">Category {pad(num)} of {pad(groups.length)}</span>
-            <h1>{group.title}</h1>
+            <h1>{group.h1}</h1>
             <p className="lead">{group.intro}</p>
             <div className="ctas">
               <a className="btn btn-primary" href="#quote">Request a quote <Icon name="arrow" /></a>
@@ -78,7 +78,7 @@ export default function CategoryPage({ group, onAsk, children }) {
                 <span className="eyebrow">Keep browsing</span>
                 <h2>Other categories</h2>
               </div>
-              <a className="btn btn-outline" href="#products">All categories</a>
+              <a className="btn btn-outline" href="/#products">All categories</a>
             </div>
             <div className="psegs">
               {others.map(([g, n]) => <CategoryCard key={g.id} group={g} num={n} />)}

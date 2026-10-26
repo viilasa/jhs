@@ -1,7 +1,7 @@
 import { Logo } from './Nav.jsx'
 import { groups, contact, categoryHref, telHref, waHref } from '../data.js'
 
-export default function Footer() {
+export default function Footer({ quoteHref }) {
   return (
     <footer>
       <div className="wrap">
@@ -17,15 +17,16 @@ export default function Footer() {
           </div>
           <div>
             <h4>Products</h4>
-            <ul>{groups.map((g) => <li key={g.id}><a href={categoryHref(g.id)}>{g.title}</a></li>)}<li><a href="#solutions">Gift boxes</a></li></ul>
+            <ul>{groups.map((g) => <li key={g.id}><a href={categoryHref(g.id)}>{g.title}</a></li>)}<li><a href="/#solutions">Gift boxes</a></li></ul>
           </div>
           <div>
             <h4>Company</h4>
             <ul>
-              <li><a href="#about">About us</a></li>
-              <li><a href="#solutions">Solutions</a></li>
-              <li><a href="#sourcing">Sourcing</a></li>
-              <li><a href="#quote">Request a quote</a></li>
+              <li><a href="/#about">About us</a></li>
+              <li><a href="/#solutions">Solutions</a></li>
+              <li><a href="/#sourcing">Sourcing</a></li>
+              <li><a href="/#faq">FAQ</a></li>
+              <li><a href={quoteHref}>Request a quote</a></li>
             </ul>
           </div>
           <div>
@@ -40,8 +41,9 @@ export default function Footer() {
           </div>
         </div>
         <div className="foot-bottom">
-          <span>© {new Date().getFullYear()} JHS General Trading. All rights reserved.</span>
-          <span>United Arab Emirates · Trade licence no. <span className="ph">{contact.licence}</span></span>
+          <span suppressHydrationWarning>© {new Date().getFullYear()} {contact.legalName}. All rights reserved.</span>
+          <span className="foot-legal"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms &amp; Conditions</a></span>
+          <span>United Arab Emirates · Trade licence no. {contact.licence}</span>
         </div>
       </div>
     </footer>

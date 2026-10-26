@@ -37,7 +37,7 @@ export default function Ways() {
           </div>
           <div className="way gift">
             <span className="eyebrow">For retail &amp; gifting</span>
-            <h3>Retail packs &amp; hampers</h3>
+            <h3>Retail packs</h3>
             <p>Pantry pouches for retail shelves and premium boxes for Ramadan, Eid, Diwali and corporate gifting.</p>
             <Spec rows={[
               ['Pantry pouches', '250 g · 500 g · 1 kg'],
