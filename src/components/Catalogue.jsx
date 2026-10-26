@@ -1,58 +1,41 @@
-import { useState } from 'react'
-import { groups } from '../data.js'
+import Icon from './Icons.jsx'
+import { groups, categoryHref } from '../data.js'
 
-const filters = [
-  { id: 'all', label: 'All' },
-  { id: 'nuts', label: 'Nuts' },
-  { id: 'dry', label: 'Dry fruits' },
-  { id: 'spice', label: 'Whole spices' },
-]
+export const pad = (n) => String(n).padStart(2, '0')
 
-function Item({ item, onAsk }) {
+// One card per category, each linking to that category's own page
+export function CategoryCard({ group, num }) {
   return (
-    <article className="item">
-      <div className={`item-art t-${item.tint}`}>
-        <svg aria-hidden="true"><use href={`#i-${item.icon}`} /></svg>
-      </div>
-      <div className="item-body">
-        <h4>{item.name}</h4>
-        <ul className="grades">{item.grades.map((g) => <li key={g}>{g}</li>)}</ul>
-        <p className="origin">{item.origin}</p>
-        <a className="ask" href="#quote" onClick={() => onAsk(item.name)}>Ask for price →</a>
-      </div>
-    </article>
+    <a className="pseg" href={categoryHref(group.id)}>
+      <span className="pseg-num">{pad(num)}</span>
+      <span className="pseg-art"><svg aria-hidden="true"><use href={`#i-${group.icon}`} /></svg></span>
+      <span className="pseg-title">{group.title}</span>
+      <span className="pseg-blurb">{group.blurb}</span>
+      <span className="pseg-foot">{group.items.length} products <span className="pseg-go">Explore <Icon name="arrow" /></span></span>
+    </a>
   )
 }
 
-export default function Catalogue({ onAsk }) {
-  const [filter, setFilter] = useState('all')
-
+export default function Catalogue() {
   return (
-    <section className="sec" id="stall">
+    <section className="sec sec-soft" id="products">
       <div className="wrap">
         <div className="sec-head">
           <div>
-            <span className="eyebrow" style={{ color: 'var(--chilli)' }}>The counter</span>
-            <h2 className="display">What's on the stall today</h2>
-            <p>Every line is quoted by grade, size and origin. Ask for a spec sheet or a sample before you commit to a container.</p>
-          </div>
-          <div className="tabs" role="group" aria-label="Filter products">
-            {filters.map((f) => (
-              <button key={f.id} className="tab" type="button" aria-pressed={filter === f.id} onClick={() => setFilter(f.id)}>
-                {f.label}
-              </button>
-            ))}
+            <span className="eyebrow">Product range</span>
+            <h2>{groups.length} categories, one supplier</h2>
+            <p>Open a category to see every product we supply in it. Each line is quoted by grade, size and origin, with spec sheets and samples on request.</p>
           </div>
         </div>
 
-        {groups.map((g) => (
-          <div className="group" key={g.id} hidden={filter !== 'all' && filter !== g.id}>
-            <div className="group-title"><h3>{g.title}</h3><span className="eyebrow">{g.items.length} lines</span></div>
-            <div className={g.cols === 4 ? 'grid four' : 'grid'}>
-              {g.items.map((item) => <Item key={item.name} item={item} onAsk={onAsk} />)}
-            </div>
-          </div>
-        ))}
+        <div className="psegs">
+          {groups.map((g, i) => <CategoryCard key={g.id} group={g} num={i + 1} />)}
+          <a className="pseg pseg-cta" href="#quote">
+            <span className="pseg-title">Need a mix of products?</span>
+            <span className="pseg-blurb">Send one enquiry for everything you need. We quote across categories in one reply.</span>
+            <span className="pseg-foot"><span className="pseg-go">Request a quote <Icon name="arrow" /></span></span>
+          </a>
+        </div>
       </div>
     </section>
   )

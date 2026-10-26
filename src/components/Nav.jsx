@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
+import Icon from './Icons.jsx'
+import { contact, telHref } from '../data.js'
 
 const links = [
-  ['#stall', 'Products'],
-  ['#buy', 'Wholesale & gifting'],
+  ['#about', 'About'],
+  ['#products', 'Products'],
+  ['#solutions', 'Solutions'],
   ['#sourcing', 'Sourcing'],
   ['#quote', 'Contact'],
 ]
@@ -15,6 +18,14 @@ export function Logo() {
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -31,36 +42,49 @@ export default function Nav() {
   const close = () => setOpen(false)
 
   return (
-    <nav className="nav" aria-label="Main">
-      <div className="wrap">
-        <a className="brand" href="#top" aria-label="JHS General Trading home" onClick={close}>
-          <Logo />
-          <span><b>JHS</b><small>General Trading · UAE</small></span>
-        </a>
-        <ul>
-          {links.map(([href, label]) => <li key={href}><a href={href}>{label}</a></li>)}
-        </ul>
-        <a className="btn btn-hot btn-sm" href="#quote">Request a quote</a>
-        <button
-          className="burger"
-          type="button"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen(!open)}
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true" style={{ fill: 'none', stroke: 'currentColor', strokeWidth: 2.4, strokeLinecap: 'round' }}>
-            {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h10" />}
-          </svg>
-        </button>
+    <>
+      <div className="topbar">
+        <div className="wrap">
+          <ul>
+            <li><Icon name="pin" /><span>{contact.office}</span></li>
+            <li><Icon name="clock" /><span className="ph">{contact.hours}</span></li>
+          </ul>
+          <ul>
+            <li><Icon name="mail" /><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
+            <li><Icon name="phone" /><a href={telHref(contact.phones[0])}>{contact.phones[0]}</a></li>
+          </ul>
+        </div>
       </div>
 
-      <div className="sheet" id="mobile-menu" hidden={!open}>
-        <ul>
-          {links.map(([href, label]) => <li key={href}><a href={href} onClick={close}>{label}</a></li>)}
-        </ul>
-        <a className="btn btn-hot" href="#quote" onClick={close}>Request a quote</a>
-      </div>
-    </nav>
+      <nav className={scrolled ? 'nav scrolled' : 'nav'} aria-label="Main">
+        <div className="wrap">
+          <a className="brand" href="#/" aria-label="JHS General Trading home" onClick={close}>
+            <Logo />
+            <span><b>JHS General Trading</b><small>Nuts · Dry fruits · Spices</small></span>
+          </a>
+          <ul className="nav-links">
+            {links.map(([href, label]) => <li key={href}><a href={href}>{label}</a></li>)}
+          </ul>
+          <a className="btn btn-primary btn-sm nav-cta" href="#quote">Request a quote</a>
+          <button
+            className="burger"
+            type="button"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen(!open)}
+          >
+            <Icon name={open ? 'close' : 'menu'} />
+          </button>
+        </div>
+
+        <div className="sheet" id="mobile-menu" hidden={!open}>
+          <ul>
+            {links.map(([href, label]) => <li key={href}><a href={href} onClick={close}>{label}</a></li>)}
+          </ul>
+          <a className="btn btn-primary" href="#quote" onClick={close}>Request a quote</a>
+        </div>
+      </nav>
+    </>
   )
 }

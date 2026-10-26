@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { contact } from '../data.js'
+import { waHref } from '../data.js'
 
 // Sticky bottom bar on phones. Hidden while the hero (which has its own buttons)
 // or the quote form is on screen, so it never covers the thing it points to.
@@ -17,16 +17,12 @@ export default function MobileBar() {
     return () => io.disconnect()
   }, [])
 
-  const digits = contact.whatsapp.replace(/\D/g, '')
-  const hasNumber = !/x/i.test(contact.whatsapp) && digits.length >= 9
-  const wa = hasNumber ? `https://wa.me/${digits}` : '#quote'
-
   return (
     <div className={off ? 'mbar off' : 'mbar'} aria-hidden={off}>
-      <a className="btn btn-wa" href={wa} tabIndex={off ? -1 : 0} {...(hasNumber ? { target: '_blank', rel: 'noopener' } : {})}>
+      <a className="btn btn-wa" href={waHref()} tabIndex={off ? -1 : 0} target="_blank" rel="noopener">
         WhatsApp us
       </a>
-      <a className="btn btn-hot" href="#quote" tabIndex={off ? -1 : 0}>Get a quote</a>
+      <a className="btn btn-primary" href="#quote" tabIndex={off ? -1 : 0}>Get a quote</a>
     </div>
   )
 }

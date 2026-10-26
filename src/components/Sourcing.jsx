@@ -13,29 +13,19 @@ const origins = [
   { at: [400, 300], lane: 'M400 300C420 260 430 220 430 170', name: 'Madagascar', sub: 'cloves', n: [414, 304], s: [414, 318] },
 ]
 
-const facts = [
-  ['Quoted by grade, not by guesswork', 'Cashews by W-count, almonds by kernels per ounce, pepper by grams per litre. You know exactly what is in the carton.'],
-  ['Sample before you ship', 'Ask for a sample and spec sheet for any line, then lock the price for your order.'],
-  ['One supplier for the whole basket', 'Combine nuts, dry fruits and spices in one consignment instead of chasing five suppliers.'],
-]
-
-const line = { stroke: 'var(--edge)', strokeWidth: 1.6 }
-
 function RouteMap() {
   return (
     <svg viewBox="0 0 640 340" role="img" aria-label="Schematic map: produce from the USA, Türkiye, Iran, Vietnam, India, West Africa and Madagascar flows to the UAE, then onward to the GCC, Africa and Asia.">
       {origins.map((o) => <path key={o.name} className="lane" d={o.lane} />)}
       <path className="lane out" d="M430 170C470 150 500 70 560 50" />
       <path className="lane out" d="M430 170C400 210 330 290 280 316" />
-      <g style={{ fill: 'var(--card)', stroke: 'var(--ink)', strokeWidth: 2 }}>
-        {origins.map((o) => <circle key={o.name} cx={o.at[0]} cy={o.at[1]} r="6" />)}
-      </g>
+      {origins.map((o) => <circle key={o.name} className="map-node" cx={o.at[0]} cy={o.at[1]} r="5" />)}
       <g transform={`translate(${HUB[0]} ${HUB[1]})`}>
-        <circle r="22" style={{ fill: 'var(--turmeric)', stroke: 'var(--edge)', strokeWidth: 2.5 }} />
+        <circle r="26" style={{ fill: 'rgba(200,150,46,.15)' }} />
         <use href="#logo" x="-17" y="-17" width="34" height="34" />
       </g>
-      <text className="map-label" x="420" y="214" textAnchor="end">UAE</text>
-      <text className="map-sub" x="420" y="228" textAnchor="end">check · repack · ship</text>
+      <text className="map-label" x="420" y="218" textAnchor="end">UAE hub</text>
+      <text className="map-sub" x="420" y="232" textAnchor="end">inspect · repack · ship</text>
       {origins.map((o) => (
         <g key={o.name}>
           <text className="map-label" x={o.n[0]} y={o.n[1]} textAnchor={o.n[2]}>{o.name}</text>
@@ -44,12 +34,6 @@ function RouteMap() {
       ))}
       <text className="map-label" x="566" y="44">GCC &amp; Asia →</text>
       <text className="map-label" x="270" y="334" textAnchor="end">← Africa</text>
-      {/* dhow */}
-      <g transform="translate(300 150)">
-        <path d="M-24 10H24L16 20H-16Z" style={{ fill: 'var(--wood)', ...line }} />
-        <path d="M0 10V-22" style={line} />
-        <path d="M2-20C18-10 20 2 14 8H2Z" style={{ fill: 'var(--card)', ...line }} />
-      </g>
     </svg>
   )
 }
@@ -66,27 +50,24 @@ export default function Sourcing() {
   }, [])
 
   return (
-    <section className="sec patterned" id="sourcing">
-      <div className="wrap">
-        <div className="sec-head">
-          <div>
-            <span className="eyebrow" style={{ color: 'var(--chilli)' }}>Sourcing</span>
-            <h2 className="display">Grown far away. Traded from the UAE.</h2>
-            <p>The UAE sits between the growing regions and the markets that eat them. Produce comes in by sea, gets checked and repacked, and goes back out across the Gulf, Africa and Asia.</p>
-          </div>
+    <section className="sec sec-soft" id="sourcing">
+      <div className="wrap sourcing">
+        <div>
+          <span className="eyebrow">Global sourcing</span>
+          <h2>Grown worldwide. Traded from the UAE.</h2>
+          <p className="intro">
+            The UAE sits between the growing regions and the markets they serve. Produce arrives by sea, is inspected and
+            repacked, then shipped onward across the Gulf, Africa and Asia.
+          </p>
+          <ul className="origin-list">
+            {origins.map((o) => <li key={o.name}><b>{o.name}</b><span>{o.sub}</span></li>)}
+          </ul>
         </div>
-        <div className="route">
-          <figure className="board" style={{ margin: 0 }}>
-            <p className="swipe-hint" aria-hidden="true">Swipe the map sideways →</p>
-            <div className="board-scroll" ref={scroller}><RouteMap /></div>
-            <figcaption className="note">Schematic, not to scale. Typical origins for each line; actual origin is stated on every quote.</figcaption>
-          </figure>
-          <div className="facts">
-            {facts.map(([h, p]) => (
-              <div className="fact" key={h}><h3>{h}</h3><p>{p}</p></div>
-            ))}
-          </div>
-        </div>
+        <figure className="map-card" style={{ margin: 0 }}>
+          <p className="swipe-hint" aria-hidden="true">Swipe the map sideways →</p>
+          <div className="map-scroll" ref={scroller}><RouteMap /></div>
+          <figcaption>Schematic, not to scale. Typical origins for each line; actual origin is stated on every quote.</figcaption>
+        </figure>
       </div>
     </section>
   )

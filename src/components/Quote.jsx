@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
-import { groups, packing, contact } from '../data.js'
+import Icon from './Icons.jsx'
+import { groups, packing, contact, telHref, waHref, mailHref } from '../data.js'
 
 const fields = [
   { id: 'grade', label: 'Grade / size', ph: 'e.g. W240' },
@@ -56,13 +57,13 @@ export default function Quote({ product, setProduct }) {
   )
 
   return (
-    <section className="quote-band" id="quote">
-      <div className="wrap sec">
+    <section className="sec sec-soft" id="quote">
+      <div className="wrap">
         <div className="sec-head">
           <div>
-            <span className="eyebrow" style={{ color: '#7A2414' }}>Request a quote</span>
-            <h2 className="display">Tell us what you need</h2>
-            <p>Fill this in and copy the message. Send it by WhatsApp or email and we reply with a price.</p>
+            <span className="eyebrow">Request a quote</span>
+            <h2>Tell us what you need</h2>
+            <p>Fill in what you need and send it to us on WhatsApp or by email in one tap. We reply with pricing and availability.</p>
           </div>
         </div>
 
@@ -70,7 +71,7 @@ export default function Quote({ product, setProduct }) {
           <form className="card" onSubmit={copy} noValidate>
             <div className="fields">
               <div className="field full">
-                <span style={{ fontWeight: 700, fontSize: 'var(--s-1)' }}>I'm buying for</span>
+                <span className="field-label">I'm buying for</span>
                 <div className="seg">
                   {['Wholesale / trade', 'Home or gifting'].map((b, i) => (
                     <span key={b}>
@@ -108,23 +109,33 @@ export default function Quote({ product, setProduct }) {
               </div>
             </div>
             <div className="form-foot">
-              <button className="btn btn-hot" type="submit">Copy my enquiry</button>
+              <a className="btn btn-wa" href={waHref(message)} target="_blank" rel="noopener">Send on WhatsApp</a>
+              <a className="btn btn-primary" href={mailHref(`Quote request: ${product}`, message)}>Send by email</a>
+              <button className="btn btn-outline" type="submit">Copy text</button>
               <span className="status" role="status">{status}</span>
             </div>
           </form>
 
           <div className="side">
             <div className="preview">
-              <span className="eyebrow" style={{ color: '#7A2414' }}>Your message</span>
+              <h3>Your message</h3>
               <pre ref={msgRef}>{message}</pre>
             </div>
             <div className="contact">
-              <h3>Reach JHS</h3>
+              <h3>Contact our sales team</h3>
+              <p>Prefer to talk directly? Reach us on any of these channels.</p>
               <dl>
-                <dt>WhatsApp</dt><dd><span className="ph">{contact.whatsapp}</span></dd>
-                <dt>Email</dt><dd><span className="ph">{contact.email}</span></dd>
-                <dt>Office</dt><dd><span className="ph">{contact.office}</span></dd>
-                <dt>Hours</dt><dd><span className="ph">{contact.hours}</span></dd>
+                {[
+                  ['phone', 'Phone / WhatsApp', contact.phones.map((n, i) => <span key={n}>{i > 0 && ' · '}<a href={telHref(n)}>{n}</a></span>)],
+                  ['mail', 'Email', <a href={`mailto:${contact.email}`}>{contact.email}</a>],
+                  ['pin', 'Office', contact.office],
+                  ['clock', 'Hours', <span className="ph">{contact.hours}</span>],
+                ].map(([icon, k, v]) => (
+                  <div key={k}>
+                    <i><Icon name={icon} /></i>
+                    <span><dt>{k}</dt><dd>{v}</dd></span>
+                  </div>
+                ))}
               </dl>
             </div>
           </div>
