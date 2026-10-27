@@ -4,7 +4,7 @@ import Hero from './components/Hero.jsx'
 import About, { OriginStrip } from './components/About.jsx'
 import Catalogue from './components/Catalogue.jsx'
 import CategoryPage from './components/CategoryPage.jsx'
-import LegalPage, { NotFound } from './components/LegalPage.jsx'
+import LegalPage, { PhotoCredits, NotFound } from './components/LegalPage.jsx'
 import Ways from './components/Ways.jsx'
 import Sourcing from './components/Sourcing.jsx'
 import Steps from './components/Steps.jsx'
@@ -45,6 +45,8 @@ export default function App({ path }) {
     body = <CategoryPage group={route.group} onAsk={setProduct}>{quote}</CategoryPage>
   } else if (route.page === 'privacy' || route.page === 'terms') {
     body = <LegalPage doc={route.page} />
+  } else if (route.page === 'credits') {
+    body = <PhotoCredits />
   } else {
     body = <NotFound />
   }

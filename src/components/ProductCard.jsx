@@ -1,4 +1,5 @@
 import Icon from './Icons.jsx'
+import { photos } from '../photos.js'
 
 // Products without a drawing in index.html get a lettered tile instead
 const initials = (name) => name.split(/[\s/&-]+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join('')
@@ -10,10 +11,16 @@ export function ProductArt({ icon, name, className = 'item-art' }) {
 }
 
 export default function ProductCard({ item, onAsk }) {
+  const photo = photos[item.name]
   return (
-    <article className="item">
+    <article className={photo ? 'item has-photo' : 'item'}>
+      {photo && (
+        <div className="item-photo">
+          <img src={photo.src} alt={item.name} width="800" height="600" loading="lazy" decoding="async" />
+        </div>
+      )}
       <div className="item-top">
-        <ProductArt icon={item.icon} name={item.name} />
+        {!photo && <ProductArt icon={item.icon} name={item.name} />}
         <div>
           <h4>{item.name}</h4>
           {item.origin && <p className="origin">{item.origin}</p>}

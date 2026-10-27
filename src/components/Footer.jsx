@@ -42,7 +42,7 @@ export default function Footer({ quoteHref }) {
         </div>
         <div className="foot-bottom">
           <span suppressHydrationWarning>© {new Date().getFullYear()} {contact.legalName}. All rights reserved.</span>
-          <span className="foot-legal"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms &amp; Conditions</a></span>
+          <span className="foot-legal"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms &amp; Conditions</a><a href="/photo-credits/">Photo Credits</a></span>
           <span>United Arab Emirates · Trade licence no. {contact.licence}</span>
         </div>
       </div>

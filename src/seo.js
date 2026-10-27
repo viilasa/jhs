@@ -16,11 +16,12 @@ export function resolve(path) {
   if (group) return { page: 'category', group, path: categoryHref(group.id) }
   if (p === '/privacy') return { page: 'privacy', path: '/privacy/' }
   if (p === '/terms') return { page: 'terms', path: '/terms/' }
+  if (p === '/photo-credits') return { page: 'credits', path: '/photo-credits/' }
   return { page: 'notfound', path: '/404' }
 }
 
 // Every page that gets its own HTML file, in sitemap order
-export const pages = ['/', ...groups.map((g) => categoryHref(g.id)), '/privacy/', '/terms/']
+export const pages = ['/', ...groups.map((g) => categoryHref(g.id)), '/privacy/', '/terms/', '/photo-credits/']
 
 const crumbs = (items) => ({
   '@type': 'BreadcrumbList',
@@ -103,6 +104,13 @@ export function meta(route) {
       jsonld: [crumbs([['Home', '/'], [name, route.path]])],
     }
   }
+  if (route.page === 'credits') {
+    return {
+      title: `Photo Credits | ${brand}`,
+      description: `Sources and licences for the product photos on the ${contact.legalName} website.`,
+      jsonld: [crumbs([['Home', '/'], ['Photo Credits', route.path]])],
+    }
+  }
   return { title: `Page not found | ${brand}`, description: 'This page does not exist.', jsonld: [], noindex: true }
 }
 
@@ -171,6 +179,7 @@ export function llmsTxt() {
     `- [Home](${SITE}/)`,
     `- [Privacy Policy](${SITE}/privacy/)`,
     `- [Terms & Conditions](${SITE}/terms/)`,
+    `- [Photo Credits](${SITE}/photo-credits/)`,
     '',
   ].join('\n')
 }
