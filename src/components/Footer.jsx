@@ -44,6 +44,7 @@ export default function Footer({ quoteHref }) {
           <span suppressHydrationWarning>© {new Date().getFullYear()} {contact.legalName}. All rights reserved.</span>
           <span className="foot-legal"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms &amp; Conditions</a><a href="/photo-credits/">Photo Credits</a></span>
           <span>United Arab Emirates · Trade licence no. {contact.licence}</span>
+          <span>Designed by <a href="https://venilabs.viilasa.com/" target="_blank" rel="noopener">Viilasa</a></span>
         </div>
       </div>
     </footer>
