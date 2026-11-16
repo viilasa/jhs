@@ -1,11 +1,11 @@
 // Product photos, keyed by product name (see data.js). Files live in public/products/.
-// All are from Wikimedia Commons under the licence shown; credits are listed on /photo-credits/.
+// Wikimedia Commons photos carry author/licence/source and are credited on /photo-credits/; entries marked own: true are supplied by JHS and not credited.
 export const photos = {
-  "Almonds": { src: '/products/almonds.webp', author: "Ivar Leidus", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:Almonds_-_in_shell,_shell_cracked_open,_shelled,_blanched.jpg" },
+  "Almonds": { src: '/products/almonds.webp?v=2', own: true },
   "Almonds Mamra": { src: '/products/almonds-mamra.webp?v=2', own: true },
   "Brazil nuts": { src: '/products/brazil-nuts.webp', author: "רנדום", license: "CC BY-SA 3.0", source: "https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_seeds_closeup.jpg" },
   "Cashews": { src: '/products/cashews.webp', author: "User Femto on en.wikipedia", license: "CC BY-SA 3.0", source: "https://commons.wikimedia.org/wiki/File:CashewSnack.jpg" },
-  "Hazelnuts": { src: '/products/hazelnuts.webp', author: "Ivar Leidus", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:Hazelnuts_(Corylus_avellana)_-_whole_with_kernels.jpg" },
+  "Hazelnuts": { src: '/products/hazelnuts.webp?v=2', own: true },
   "Macadamia": { src: '/products/macadamia.webp', author: "Fumikas Sagisavas", license: "CC0", source: "https://commons.wikimedia.org/wiki/File:Cut_macadamia_nuts.jpg" },
   "Peanuts": { src: '/products/peanuts.webp', author: "Ivar Leidus", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:Peanuts_(Arachis_hypogaea)_-_in_shell,_shell_cracked_open,_shelled,_peeled.jpg" },
   "Pecans": { src: '/products/pecans.webp', author: "Scott Bauer", license: "Public domain", source: "https://commons.wikimedia.org/wiki/File:Pecans.jpg" },
