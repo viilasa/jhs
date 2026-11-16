@@ -2,7 +2,7 @@
 // All are from Wikimedia Commons under the licence shown; credits are listed on /photo-credits/.
 export const photos = {
   "Almonds": { src: '/products/almonds.webp', author: "Ivar Leidus", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:Almonds_-_in_shell,_shell_cracked_open,_shelled,_blanched.jpg" },
-  "Almonds Mamra": { src: '/products/almonds-mamra.webp', author: "Ranjithkumar Murugesan", license: "CC0", source: "https://commons.wikimedia.org/wiki/File:KASHMIRI_MAMRA_ALMONDS.jpg" },
+  "Almonds Mamra": { src: '/products/almonds-mamra.webp?v=2', own: true },
   "Brazil nuts": { src: '/products/brazil-nuts.webp', author: "רנדום", license: "CC BY-SA 3.0", source: "https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_seeds_closeup.jpg" },
   "Cashews": { src: '/products/cashews.webp', author: "User Femto on en.wikipedia", license: "CC BY-SA 3.0", source: "https://commons.wikimedia.org/wiki/File:CashewSnack.jpg" },
   "Hazelnuts": { src: '/products/hazelnuts.webp', author: "Ivar Leidus", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:Hazelnuts_(Corylus_avellana)_-_whole_with_kernels.jpg" },
