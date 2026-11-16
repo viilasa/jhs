@@ -17,7 +17,7 @@ export default function Footer({ quoteHref }) {
           </div>
           <div>
             <h4>Products</h4>
-            <ul>{groups.map((g) => <li key={g.id}><a href={categoryHref(g.id)}>{g.title}</a></li>)}<li><a href="/#solutions">Gift boxes</a></li></ul>
+            <ul>{groups.map((g) => <li key={g.id}><a href={categoryHref(g.id)}>{g.title}</a></li>)}</ul>
           </div>
           <div>
             <h4>Company</h4>

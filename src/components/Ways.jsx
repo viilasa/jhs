@@ -18,7 +18,7 @@ export default function Ways() {
           <div>
             <span className="eyebrow">Solutions</span>
             <h2>Supply for every scale</h2>
-            <p>From full containers for distributors to curated gift boxes for corporate clients — the same stock, packed to your requirement.</p>
+            <p>From mixed-load cartons to full containers for importers and distributors — the same stock, packed to your requirement.</p>
           </div>
         </div>
         <div className="ways">
@@ -34,18 +34,6 @@ export default function Ways() {
               ['Shipping documents', 'Certificate of origin · phyto'],
             ]} />
             <a className="btn btn-primary" href="#quote">Get a trade price <Icon name="arrow" /></a>
-          </div>
-          <div className="way gift">
-            <span className="eyebrow">For retail &amp; gifting</span>
-            <h3>Retail packs</h3>
-            <p>Pantry pouches for retail shelves and premium boxes for Ramadan, Eid, Diwali and corporate gifting.</p>
-            <Spec rows={[
-              ['Pantry pouches', '250 g · 500 g · 1 kg'],
-              ['Gift boxes', 'Mixed nuts · dates · saffron'],
-              ['Corporate gifting', 'Branded sleeves on request'],
-              ['Delivery', '[UAE areas to confirm]', true],
-            ]} />
-            <a className="btn btn-dark" href="#quote">Order gift boxes <Icon name="arrow" /></a>
           </div>
         </div>
       </div>
