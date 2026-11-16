@@ -193,7 +193,7 @@ footer .brand-logo{ width:84px; height:84px }
 .pseg-art{ width:68px; height:68px; padding:12px; border-radius:16px; background:var(--gold-50); border:1px solid var(--gold-100); flex:none }
 .pseg-art svg{ width:100%; height:100% }
 .pseg-art.has-img{ padding:3px; background:#fff }
-.pseg-art img{ width:100%; height:100%; object-fit:contain }
+.pseg-art img{ width:100%; height:100%; object-fit:contain; border-radius:12px }
 .pseg-title{ font:700 20px/1.2 var(--f-head); color:var(--ink); letter-spacing:-.02em; margin-top:4px }
 .pseg-blurb{ font-size:14px; color:var(--muted) }
 .pseg-foot{ display:flex; align-items:center; gap:6px; width:100%; margin-top:auto; padding-top:14px; border-top:1px solid var(--line); font-size:13px; font-weight:500; color:var(--muted) }

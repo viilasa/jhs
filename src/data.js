@@ -12,6 +12,7 @@ export const groups = [
     seoDescription: 'Buy almonds, cashews, pistachios, walnuts, hazelnuts and more in bulk from JHS General Trading, a nuts distributor in Ras Al Khaimah, UAE. Graded by origin and size.',
     title: 'Nuts',
     icon: 'cashew',
+    image: '/products/nuts.webp',
     blurb: 'Almonds, cashews, pistachios, walnuts, hazelnuts and more, across multiple origins, grades and sizes.',
     intro: 'Raw nuts for importers, wholesalers, roasters, bakeries and retailers. Every line is quoted by origin, grade and count, so you can compare offers like for like.',
     facts: [
