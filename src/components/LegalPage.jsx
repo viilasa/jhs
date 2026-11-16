@@ -52,7 +52,7 @@ export function PhotoCredits() {
             <section key={g.id}>
               <h2>{g.title}</h2>
               <ul className="credits">
-                {g.items.filter((i) => photos[i.name]).map((i) => {
+                {g.items.filter((i) => photos[i.name] && !photos[i.name].own).map((i) => {
                   const p = photos[i.name]
                   return (
                     <li key={i.name}>

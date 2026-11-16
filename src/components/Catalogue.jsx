@@ -4,11 +4,18 @@ import { groups, categoryHref } from '../data.js'
 export const pad = (n) => String(n).padStart(2, '0')
 
 // One card per category, each linking to that category's own page
+// Category picture: the group's own image when it has one, otherwise its drawn icon
+export function CategoryArt({ group }) {
+  return group.image
+    ? <span className="pseg-art has-img"><img src={group.image} alt="" width="240" height="240" loading="lazy" decoding="async" /></span>
+    : <span className="pseg-art"><svg aria-hidden="true"><use href={`#i-${group.icon}`} /></svg></span>
+}
+
 export function CategoryCard({ group, num }) {
   return (
     <a className="pseg" href={categoryHref(group.id)}>
       <span className="pseg-num">{pad(num)}</span>
-      <span className="pseg-art"><svg aria-hidden="true"><use href={`#i-${group.icon}`} /></svg></span>
+      <CategoryArt group={group} />
       <span className="pseg-title">{group.title}</span>
       <span className="pseg-blurb">{group.blurb}</span>
       <span className="pseg-foot">{group.items.length} products <span className="pseg-go">Explore <Icon name="arrow" /></span></span>

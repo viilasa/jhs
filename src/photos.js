@@ -13,7 +13,7 @@ export const photos = {
   "Pistachios": { src: '/products/pistachios.webp', author: "Kobi Schutz", license: "CC BY-SA 3.0", source: "https://commons.wikimedia.org/wiki/File:Pistachio.jpg" },
   "Walnuts": { src: '/products/walnuts.webp', author: "Ivar Leidus", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:Walnuts_-_whole_and_open_with_halved_kernel.jpg" },
   "Almond cuts & powder": { src: '/products/almond-cuts-powder.webp', author: "Fumikas Sagisavas", license: "CC0", source: "https://commons.wikimedia.org/wiki/File:Almond_slices.jpg" },
-  "Cashew pieces & splits": { src: '/products/cashew-pieces-splits.webp', author: "יעל י", license: "CC BY-SA 3.0", source: "https://commons.wikimedia.org/wiki/File:Processed_Anacardium_occidentale.jpg" },
+  "Cashew pieces & splits": { src: '/products/cashew-pieces-splits.webp?v=2', own: true },
   "Pistachio powder & slivers": { src: '/products/pistachio-powder-slivers.webp', author: "Hedi Aghlara", license: "CC BY-SA 3.0", source: "https://commons.wikimedia.org/wiki/File:Kernel_Pistachio.JPG" },
   "Pumpkin seed kernels": { src: '/products/pumpkin-seed-kernels.webp', author: "Fumikas Sagisavas", license: "CC0", source: "https://commons.wikimedia.org/wiki/File:Shelled_and_fried_pumpkin_seeds.jpg" },
   "Sunflower seed kernels": { src: '/products/sunflower-seed-kernels.webp', author: "ABF", license: "CC BY-SA 3.0", source: "https://commons.wikimedia.org/wiki/File:Sunflower_seeds.jpg" },

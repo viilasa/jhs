@@ -1,6 +1,6 @@
 import Icon from './Icons.jsx'
 import ProductCard from './ProductCard.jsx'
-import { CategoryCard, pad } from './Catalogue.jsx'
+import { CategoryArt, CategoryCard, pad } from './Catalogue.jsx'
 import { groups } from '../data.js'
 
 // Split items into their sub-headings (in first-seen order); items without one form a single block
@@ -39,7 +39,7 @@ export default function CategoryPage({ group, onAsk, children }) {
 
           <aside className="cat-facts" aria-label={`${group.title} at a glance`}>
             <div className="cat-facts-head">
-              <span className="pseg-art"><svg aria-hidden="true"><use href={`#i-${group.icon}`} /></svg></span>
+              <CategoryArt group={group} />
               <div><b>{group.items.length}</b><span>products in this category</span></div>
             </div>
             <dl>

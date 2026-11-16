@@ -40,6 +40,7 @@ export const groups = [
     seoDescription: 'Diced, sliced, slivered and powdered almonds, cashew pieces, pistachio powder and seed kernels, supplied in bulk across the UAE by JHS General Trading.',
     title: 'Processed nuts & nut ingredients',
     icon: 'pista',
+    image: '/products/processed-nuts.webp',
     blurb: 'Diced, sliced, slivered and powdered nuts and seed kernels.',
     intro: 'Cut and milled nut ingredients for bakeries, confectioners, ice-cream makers, food manufacturers and hotel kitchens. Tell us the cut and the end use and we will match the spec.',
     facts: [
